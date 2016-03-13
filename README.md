@@ -74,6 +74,13 @@ cdnify: {
 }
 ```
 
+### append (boolean)
+Whether to append paths to base rather than resolving them. 
+
+This helps in situations where your base CDN url is something like `//cdn.example.com/my/app/` and your asset paths are all absolute, e.g. `/img/logo.png`.
+Rather than cdnifying the url to `//cdn.example.com/img/logo.png` (default behavior), the append option being set to true would yield `//cdn.example.com/my/app/img/logo.png`.
+Default: `false`.
+
 ### css (boolean)
 Whether to modify CSS. Applies to both `*.css` files and `<style>` elements. Default: `true`.
 

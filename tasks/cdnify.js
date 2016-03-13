@@ -25,7 +25,8 @@ function isLocalPath(filePath) {
 // Default options
 var defaults = {
     html: true,
-    css: true
+    css: true,
+    append: false
 };
 
 var htmlDefaults = {
@@ -73,7 +74,21 @@ module.exports = function (grunt) {
 
     if (typeof base === 'string') {
       rewriteURL = function (origUrl) {
-        return isLocalPath(origUrl) ? url.resolve(base, origUrl) : origUrl;
+        if (isLocalPath(origUrl)) {
+          if (!options.append || origUrl.indexOf('../') === 0) {
+            return url.resolve(base, origUrl); 
+          }
+          else {
+            // strip out unnecessary slashes if appending
+            if (origUrl[0] === '/' && base.slice(-1) === '/') {
+              origUrl = origUrl.slice(1);
+            }
+            return base + origUrl;
+          }
+        }
+        else {
+          return origUrl;
+        }
       };
     } else if (typeof rewriteURL !== 'function') {
       grunt.fatal('Please specify either a `base` string or a `rewriter` function in the task options.');

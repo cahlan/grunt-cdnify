@@ -54,6 +54,14 @@ module.exports = function(grunt) {
         files: {
           'test/output/sample-custom-options.html': 'test/fixtures/sample.html'
         }
+      },
+      appendOptions: {
+        options: {
+          append: true
+        },
+        files: {
+          'test/output/sample-append-options.html': 'test/fixtures/sample-absolute-paths.html'
+        }
       }
     },
 

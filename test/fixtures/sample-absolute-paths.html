@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <style>
+      body {
+        background-image: url('foo.jpg');
+        background-image: url('/foo.jpg');
+        background-image: url('../foo.jpg');
+        background-image: url('foo/bar.jpg');
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Hello</h1>
+    <img something src="/img/bar.jpg" data-hiya data-food="crimson">
+    <img something data-src="/img/bar.jpg" src="/img/foo.jpg" data-hiya data-food="crimson">
+
+    <img src=/img/foo/lala.png foo=bar />
+    <img truffles=/img/abc.jpg>
+    <img ng-src=/img/foo/lala.png/>
+
+    <img src="/img/blah.png" something=blah  > :)
+
+    <script src="/js/hello.js"></script>
+  </body>
+</html>

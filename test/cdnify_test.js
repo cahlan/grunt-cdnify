@@ -31,5 +31,15 @@ exports.cdnify = {
     test.equal(actual, expected);
 
     test.done();
+  },
+
+  'HTML file including absolute links with \'append\' option set to false': function (test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('test/output/sample-append-options.html');
+    var expected = grunt.file.read('test/expected/sample-append-options.html');
+    test.equal(actual, expected);
+
+    test.done();
   }
 };
